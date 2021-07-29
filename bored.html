@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Are You Bored ?</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header
+      class="jumbotron display-4"
+      style="background-color: rgb(192, 36, 114); color: whitesmoke"
+    >
+      <h1>Random activity generator</h1>
+      <p>
+        Have you ever just felt bored and couldn't think of anything to do ?
+        Well you're not alone.
+      </p>
+      <p>
+        To begin, just click on the button below and find out what you can do.
+      </p>
+      <button class="btn btn-success btn-lg" id="bored-btn">
+        GET SUGGESTION
+      </button>
+    </header>
+    <section>
+      <div class="container text-center display-4 mb-5" id="stuff"></div>
+    </section>
+    <article class="container">
+      <div class="row">
+        <div class="col">
+          <h3>So why this website ?</h3>
+          <p>
+            I know how boring it can get sometimes when you're a developer and
+            have nothing new to work on so i decided to make this simple website
+            with very basic tech stack to hopefully cheer you up and give you
+            some ideas to try out so it's basically by developers, for
+            developers 💕
+          </p>
+        </div>
+        <div class="col">
+          <h3>How to support this project ?</h3>
+          <p>
+            As sweet as that would be but there's not much needed so if you like
+            this project and want to show your support, you can do so by making
+            a liking the repo on Github 💙
+          </p>
+        </div>
+      </div>
+    </article>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $("#bored-btn").click(function (e) {
+          e.preventDefault();
+          const url = "http://www.boredapi.com/api/activity/";
+          $.get(url, function (data) {
+            $("#stuff").text(data.activity);
+          });
+          $("#stuff").hover(
+            function () {
+              $(this).css("color", "red");
+            },
+            function () {
+              $(this).css("color", "black");
+            }
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

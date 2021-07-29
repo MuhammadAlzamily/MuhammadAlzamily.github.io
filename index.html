@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BitCoin Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="grey darken-2 green-text text-lighten-5">
+    <header
+      class="jumbotron display-4"
+      style="background-color: red; color: whitesmoke"
+    >
+      <h1>Live Bitcoin Price Tracker</h1>
+      <p>
+      A simple app to track the price of bitcoin in real time and in the three major currencies to save you the time, Soon we'll be adding more features so stay tuned 😃 
+      </p>
+      <a href="/bored" class="btn btn-info btn-lg">I'm bored 🥺 </a>
+      <a href="/todo" class="btn btn-danger btn-lg">My todo list 😏 </a>
+    </header>
+    <div class="container display-4 text-center">
+      <p>
+        CURRENT PRICES OF BITCOIN  <br />
+          <h5 id="btc-price-usd"></h5> 
+          <h5 id="btc-price-gbp"></h5> 
+          <h5 id="btc-price-euro"></h5>
+      </p>
+    </div>
+    <footer class="text-center" style="position: fixed; bottom: 0; width: 100%; background-color: red; color: whitesmoke;">
+      <h6>2021 | CoinBuddy</h6>
+      <i class="bi bi-twitter"></i>
+    </footer>
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const socket = io();
+      socket.on("price-update", (data) => {
+        $("#btc-price-usd").text(data.price.USD.rate + " 💵");
+        $('#btc-price-gbp').text(data.price.GBP.rate + " 💷");
+        $('#btc-price-euro').text(data.price.EUR.rate+" 💶");
+        $('#btc-price-gbp,#btc-price-usd,#btc-price-euro').addClass('display-4');
+      });
+    </script>
+  </body>
+</html>

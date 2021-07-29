@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The amazing todo list</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body style="background-color: rgb(52, 235, 28);" >
+    <div class="container text-center ">
+      <h1>Behold, a todo list web app 🤯</h1>
+      <p>
+        1️⃣ Add a new todo item <br>
+        2️⃣ Mark a todo item as done by clicking on it <br>
+        3️⃣ Delete all items easily with one click <br>
+        🔗 Star the repo plz and ty 😗 
+      </p>
+    </div>
+    <div class="container">
+      <input type="text" class="form-control mb-4" placeholder="Add an activity" id="activity" />
+      <button id="adding" class="btn btn-success btn-lg">Add activity</button>
+      <button class="btn btn-danger btn-lg" id="removing">Delete all activities</button>
+      <hr>
+      <ul class="list-group" id="stuff">
+        
+      </ul>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        $(document).ready(function () {
+            $('#adding').click(function (e) { 
+                e.preventDefault();
+                const newitem = $('#activity').val();
+                $('#stuff').append(`<li class="list-group-item"> ${newitem} </li>`);
+                $('#activity').val('');
+                $('li').click(function (e) { 
+                    e.preventDefault();
+                    $(this).css("text-decoration", "line-through");
+                    
+                });
+            });
+            $('#removing').click(function (e) { 
+                e.preventDefault();
+                $('#stuff').empty();
+            });
+        });
+    </script>
+  </body>
+</html>
