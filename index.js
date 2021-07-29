@@ -32,7 +32,7 @@ io.on('connection', async (socket) => {
     }
 })
 
-server.listen(3000, () => {
+server.listen(7777, () => {
     console.log("Server is up and running.....");
 })
 
