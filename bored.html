@@ -68,7 +68,7 @@
       $(document).ready(function () {
         $("#bored-btn").click(function (e) {
           e.preventDefault();
-          const url = "http://www.boredapi.com/api/activity/";
+          const url = "https://www.boredapi.com/api/activity/";
           $.get(url, function (data) {
             $("#stuff").text(data.activity);
           });
