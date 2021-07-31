@@ -2,15 +2,8 @@ const app = require('express')();
 
 const axios = require('axios').default;
 
-const server = require('http').createServer(app);
-
-const { Server } = require('socket.io');
-
-const io = new Server(server);
-
-
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/home.html");
 });
 
 app.get('/bored', (req, res) => {
@@ -19,20 +12,12 @@ app.get('/bored', (req, res) => {
 
 app.get('/todo', (req, res) => {
     res.sendFile(__dirname + "/todo.html");
-})
+});;
 
-io.on('connection', async (socket) => {
-    try {
-        setInterval(async () => {
-            const res = await axios.get("https://api.coindesk.com/v1/bpi/currentprice.json");
-            io.emit('price-update', { price: res.data.bpi });
-        }, 5000)
-    } catch (err) {
-        throw err;
-    }
-})
+app.get('/prices', (req, res) => {
+    res.sendFile(__dirname + "/index.html");
+});
 
-server.listen(7777, () => {
+app.listen(7777, () => {
     console.log("Server is up and running.....");
-})
-
+});
