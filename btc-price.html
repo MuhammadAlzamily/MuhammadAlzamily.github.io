@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BitCoin Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  </head>
+  <body>
+    <header
+      class="jumbotron display-4"
+      style="background-color: red; color: whitesmoke"
+    >
+      <h1>Live Bitcoin Price Tracker</h1>
+      <p>
+      A simple app to track the price of bitcoin in real time and in the three major currencies to save you the time 😃 
+      </p>
+    </header>
+    <div class="container display-4 text-center">
+      <p>
+        CURRENT PRICES OF BITCOIN  <br />
+          <h5 id="btc-price-usd"></h5> 
+          <h5 id="btc-price-gbp"></h5> 
+          <h5 id="btc-price-euro"></h5>
+      </p>
+    </div>
+    <footer class="text-center" style="position: fixed; bottom: 0; width: 100%; background-color: red; color: whitesmoke;">
+      <h6>2021 | CoinBuddy</h6>
+    </footer>
+    <script>
+      $(document).ready(function () {
+        setInterval(()=>{
+          $.get("https://api.coindesk.com/v1/bpi/currentprice.json",async(data)=>{
+            try {
+              const new_data = JSON.parse(data);
+              $('#btc-price-usd').text(new_data.bpi.USD.rate+ " 💵 ");
+              $('#btc-price-gbp').text(new_data.bpi.GBP.rate+ " 💷 ");
+              $('#btc-price-euro').text(new_data.bpi.EUR.rate+" 💶 ");
+              $("#btc-price-usd, #btc-price-gbp, #btc-price-euro").addClass("display-4");
+            } catch (error) {
+              console.error(error.message);
+            }
+          })
+        },2000);
+      });
+    </script>
+  </body>
+</html>

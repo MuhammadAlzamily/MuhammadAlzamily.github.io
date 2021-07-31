@@ -3,7 +3,7 @@ const app = require('express')();
 const axios = require('axios').default;
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/home.html");
+    res.sendFile(__dirname + "/index.html");
 });
 
 app.get('/bored', (req, res) => {
@@ -15,7 +15,7 @@ app.get('/todo', (req, res) => {
 });;
 
 app.get('/prices', (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/btc-price.html");
 });
 
 app.listen(7777, () => {

@@ -4,63 +4,110 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BitCoin Tracker</title>
+    <title>Welcome</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"
-  ></script>
   </head>
   <body>
-    <header
-      class="jumbotron display-4"
-      style="background-color: red; color: whitesmoke"
+    <div
+      class="jumbotron text-center display-5"
+      style="background-color: blueviolet; color: whitesmoke"
     >
-      <h1>Live Bitcoin Price Tracker</h1>
+      <h1>Hello World !</h1>
+      <p>The website of a certified nerd who loves JS and Python and wanted to start trying to work abroad and experience new things in life </p>
+      <img src="https://cdn.pixabay.com/photo/2018/06/08/00/48/developer-3461405__340.png" alt="" class="img-fluid">
+    </div>
+    <div class="jumbotron " style="background-color: violet; color: whitesmoke;">
+      <h3>So who am i ? 😕</h3>
       <p>
-      A simple app to track the price of bitcoin in real time and in the three major currencies to save you the time 😃 
-      </p>
-      <a href="/bored" class="btn btn-info btn-lg">I'm bored 🥺 </a>
-      <a href="/todo" class="btn btn-danger btn-lg">My todo list 😏 </a>
-    </header>
-    <div class="container display-4 text-center">
-      <p>
-        CURRENT PRICES OF BITCOIN  <br />
-          <h5 id="btc-price-usd"></h5> 
-          <h5 id="btc-price-gbp"></h5> 
-          <h5 id="btc-price-euro"></h5>
+        I'm a web developer - ik a shocker - and i have worked with many
+        technologies because i simply love to see "alive" projects so web
+        developement sounded so fun to me and on this website you'll get to know
+        enough about me, hopefully 😃
       </p>
     </div>
-    <footer class="text-center" style="position: fixed; bottom: 0; width: 100%; background-color: red; color: whitesmoke;">
-      <h6>2021 | CoinBuddy</h6>
-    </footer>
-    <script>
-      $(document).ready(function () {
-        setInterval(()=>{
-          $.get("https://api.coindesk.com/v1/bpi/currentprice.json",async(data)=>{
-            try {
-              const new_data = JSON.parse(data);
-              $('#btc-price-usd').text(new_data.bpi.USD.rate+ " 💵 ");
-              $('#btc-price-gbp').text(new_data.bpi.GBP.rate+ " 💷 ");
-              $('#btc-price-euro').text(new_data.bpi.EUR.rate+" 💶 ");
-              $("#btc-price-usd, #btc-price-gbp, #btc-price-euro").addClass("display-4");
-            } catch (error) {
-              console.error(error.message);
-            }
-          })
-        },2000);
-      });
-    </script>
+    <div class="jumbotron display-5" style="background-color: white;">
+      <h3>Whst tech do i usually use and comfy with ?</h3>
+      <p>
+       i love to keep things simple and gradually progress and improve so my favorite web tech are : 
+       <ul class="list-group">
+           <li class="list-group-item">JQuery - one of my absolute favorite </li>
+           <li class="list-group-item">Bootstrap 4 </li>
+           <li class="list-group-item">React - i'm comfy with it mostly as i love the components concept of it </li>
+           <li class="list-group-item">Express.js - as this website itself is built using it and it saves me tons of time, backend wise  </li>
+           <li class="list-group-item">Django and Flask because of my knwledge in Python</li>
+       </ul>
+      </p>
+    </div>
+    <div class="jumbotron text-center display-5">
+        <h3>So why hire me ? What's the fuss about me ?</h3>
+        <p>Well, what is it, you ask ? </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Me</th>
+                    <th>Thw others</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>I love cats ✔ </td>
+                    <td>They probably don't </td>
+                </tr>
+                <tr>
+                    <td> i like mondays tbh ✔ </td>
+                    <td>irdk if anyone does 😢 </td>
+                </tr>
+                <tr>
+                    <td>I don't have a visa 🙃 </td>
+                    <td>They probably do </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="jumbotron text-center" style="background-color: red; color: white;">
+        <h3>Where to find my projects then ?</h3>
+        <p>I've few projects ready down below, just click on the image to take you to it </p>
+        <div class="container">
+        <div class="row ">
+            <div class="col">
+                <h5>live bitcoin price tracker</h5>
+                <p>Simple web app to track the price of bitcoin in real time using an api and JQuery and BS4 for styling</p>
+                <a href="/prices" class="btn btn-info btn-lg">Take me to it</a>
+            </div>
+            <div class="col">
+                <h5>Random activity generator</h5>
+                <p>i was seriously bored and burnt out so i decided to make something silly for those who were bored as well</p>
+                <a href="/bored" class="btn btn-info btn-lg">Take me to it</a>
+            </div>
+            <div class="col">
+                <h5>Todo list</h5>
+                <p>A very quick and fun and ik, cliche project but i still enjoyed it a lot</p>
+                <a href="/todo" class="btn btn-info btn-lg">Take me to it</a>
+            </div>
+            <div class="col">
+                <h5>A Google Maps clone - kinda </h5>
+                <p>it still has cool features like navigation and direction and all that, and a little fun easter egg 😉 </p>
+                <a href="https://maps-on-the-web.netlify.app/" class="btn btn-info btn-lg">Take me to it</a>
+            </div>
+            <div class="col">
+                <h5>A Youtube video downloader</h5>
+                <p>It was a React project and i personally use it on the daily until now and bringing BS4 to it very soon </p>
+                <a href="https://grab-tuber.netlify.app/" class="btn btn-info btn-lg">Take me to it</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron" style="background-color: lightslategrey; color: whitesmoke;">
+        <h3>Where to contact me </h3>
+        <p>
+            i check my email pretty often so leave me an email plz and ty 😽 
+        </p>
+        <a href="mailto:devdotpy@gmail.com" class="btn btn-danger btn-lg">Send an email</a>
+    </div>
   </body>
 </html>
