@@ -15,7 +15,7 @@ app.get('/todo', (req, res) => {
 });;
 
 app.get('/prices', (req, res) => {
-    res.sendFile(__dirname + "/btc-price.html");
+    res.sendFile(__dirname + "/prices.html");
 });
 
 app.listen(7777, () => {
